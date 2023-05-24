@@ -7,10 +7,8 @@
 
 #include "verilated.h"
 
-
 class Vcore__Syms;
-
-class alignas(VL_CACHE_LINE_BYTES) Vcore___024root final : public VerilatedModule {
+VL_MODULE(Vcore___024root) {
   public:
 
     // DESIGN SPECIFIC STATE
@@ -23,6 +21,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vcore___024root final : public VerilatedModul
         VL_OUT8(ext_instruction,0,0);
         VL_IN8(ext_ready,0,0);
         VL_OUT8(ext_write_strobe,3,0);
+        CData/*0:0*/ core__DOT__mem_ready;
         CData/*0:0*/ core__DOT__core_pipeline__DOT__csr_to_decode_readable;
         CData/*0:0*/ core__DOT__core_pipeline__DOT__csr_to_decode_writable;
         CData/*0:0*/ core__DOT__core_pipeline__DOT__writeback_to_csr_write_enable;
@@ -34,12 +33,12 @@ class alignas(VL_CACHE_LINE_BYTES) Vcore___024root final : public VerilatedModul
         CData/*0:0*/ core__DOT__core_pipeline__DOT__global_mret;
         CData/*0:0*/ core__DOT__core_pipeline__DOT__global_wfi;
         CData/*4:0*/ core__DOT__core_pipeline__DOT__writeback_to_regfile_rd_address;
+        CData/*0:0*/ core__DOT__core_pipeline__DOT____Vcellinp__pipeline_hazard__load_store;
         CData/*0:0*/ core__DOT__core_pipeline__DOT__decode_to_hazaed_uses_rs1;
         CData/*0:0*/ core__DOT__core_pipeline__DOT__decode_to_hazaed_uses_rs2;
         CData/*0:0*/ core__DOT__core_pipeline__DOT__hazard_to_fetch_stall;
         CData/*0:0*/ core__DOT__core_pipeline__DOT__hazard_to_fetch_invalidate;
-        CData/*0:0*/ core__DOT__core_pipeline__DOT__hazard_to_decode_stall;
-        CData/*0:0*/ core__DOT__core_pipeline__DOT__hazard_to_execute_invalidate;
+        CData/*0:0*/ core__DOT__core_pipeline__DOT__hazard_to_execute_stall;
         CData/*0:0*/ core__DOT__core_pipeline__DOT__global_branch_taken;
         CData/*0:0*/ core__DOT__core_pipeline__DOT__fetch_to_decode_valid;
         CData/*4:0*/ core__DOT__core_pipeline__DOT__memory_to_decode_bypass_address;
@@ -79,9 +78,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vcore___024root final : public VerilatedModul
         CData/*4:0*/ core__DOT__core_pipeline__DOT__execute_to_memory_rd_address;
         CData/*0:0*/ core__DOT__core_pipeline__DOT__execute_to_memory_csr_write;
         CData/*0:0*/ core__DOT__core_pipeline__DOT__execute_to_memory_mret;
-        CData/*0:0*/ core__DOT__core_pipeline__DOT__execute_to_memory_wfi;
     };
     struct {
+        CData/*0:0*/ core__DOT__core_pipeline__DOT__execute_to_memory_wfi;
         CData/*0:0*/ core__DOT__core_pipeline__DOT__execute_to_memory_valid;
         CData/*3:0*/ core__DOT__core_pipeline__DOT__execute_to_memory_ecause;
         CData/*0:0*/ core__DOT__core_pipeline__DOT__execute_to_memory_exception;
@@ -103,18 +102,15 @@ class alignas(VL_CACHE_LINE_BYTES) Vcore___024root final : public VerilatedModul
         CData/*3:0*/ core__DOT__core_pipeline__DOT__pipeline_csr__DOT__mcause;
         CData/*0:0*/ core__DOT__core_pipeline__DOT__pipeline_csr__DOT__minterupt;
         CData/*0:0*/ core__DOT__core_pipeline__DOT__pipeline_hazard__DOT__trap_invalidate;
+        CData/*0:0*/ core__DOT__core_pipeline__DOT__pipeline_hazard__DOT__branch_invalidate;
         CData/*0:0*/ core__DOT__core_pipeline__DOT__pipeline_hazard__DOT__data_hazard;
-        CData/*0:0*/ core__DOT__core_pipeline__DOT__pipeline_hazard__DOT____VdfgTmp_hd3590afe__0;
         CData/*0:0*/ core__DOT__core_pipeline__DOT__pipeline_execute__DOT__csr_exception;
         CData/*0:0*/ core__DOT__core_pipeline__DOT__pipeline_execute__DOT__ex_cmp__DOT__quasi_result;
         CData/*0:0*/ core__DOT__core_pipeline__DOT__pipeline_execute__DOT__ex_cmp__DOT__negate;
         CData/*2:0*/ core__DOT__core_pipeline__DOT__pipeline_execute__DOT__ex_alu__DOT__old_function;
         CData/*0:0*/ core__DOT__core_pipeline__DOT__pipeline_memory__DOT__valid_mem_address;
         CData/*0:0*/ core__DOT__core_pipeline__DOT__pipeline_memory__DOT__should_branch;
-        CData/*0:0*/ core__DOT__core_pipeline__DOT__pipeline_writeback__DOT____VdfgTmp_h9c854e12__0;
-        CData/*0:0*/ core__DOT__core_busio__DOT____VdfgTmp_hbb61d502__0;
-        CData/*0:0*/ __Vtrigprevexpr___TOP__clk__0;
-        CData/*0:0*/ __VactContinue;
+        CData/*0:0*/ __Vclklast__TOP__clk;
         SData/*11:0*/ core__DOT__core_pipeline__DOT__decode_to_execute_csr_address;
         SData/*11:0*/ core__DOT__core_pipeline__DOT__execute_to_memory_csr_address;
         SData/*11:0*/ core__DOT__core_pipeline__DOT__memory_to_writeback_csr_address;
@@ -146,10 +142,10 @@ class alignas(VL_CACHE_LINE_BYTES) Vcore___024root final : public VerilatedModul
         IData/*31:0*/ core__DOT__core_pipeline__DOT__memory_to_writeback_csr_data;
         IData/*31:0*/ core__DOT__core_pipeline__DOT__memory_to_writeback_load_data;
         IData/*31:0*/ core__DOT__core_pipeline__DOT__pipeline_csr__DOT__mtvec;
-    };
-    struct {
         IData/*31:0*/ core__DOT__core_pipeline__DOT__pipeline_csr__DOT__mscratch;
         IData/*31:0*/ core__DOT__core_pipeline__DOT__pipeline_csr__DOT__mecp;
+    };
+    struct {
         IData/*31:0*/ core__DOT__core_pipeline__DOT__pipeline_fetch__DOT__pc;
         IData/*31:0*/ core__DOT__core_pipeline__DOT__pipeline_fetch__DOT__next_pc;
         IData/*31:0*/ core__DOT__core_pipeline__DOT__pipeline_decode__DOT__i_type_imm_data;
@@ -165,30 +161,23 @@ class alignas(VL_CACHE_LINE_BYTES) Vcore___024root final : public VerilatedModul
         IData/*31:0*/ core__DOT__core_pipeline__DOT__pipeline_execute__DOT__ex_alu__DOT__result_or;
         IData/*31:0*/ core__DOT__core_pipeline__DOT__pipeline_execute__DOT__ex_alu__DOT__result_and_clr;
         IData/*31:0*/ core__DOT__core_busio__DOT__tmp_load_data;
-        IData/*31:0*/ __VstlIterCount;
-        IData/*31:0*/ __VicoIterCount;
-        IData/*31:0*/ __VactIterCount;
         QData/*63:0*/ core__DOT__core_pipeline__DOT__pipeline_csr__DOT__cycle;
         QData/*63:0*/ core__DOT__core_pipeline__DOT__pipeline_csr__DOT__instret;
         QData/*63:0*/ core__DOT__core_pipeline__DOT__pipeline_csr__DOT__mtimecmp;
         VlUnpacked<IData/*31:0*/, 32> core__DOT__core_pipeline__DOT__pipeline_registers__DOT__registers;
     };
-    VlTriggerVec<1> __VstlTriggered;
-    VlTriggerVec<1> __VicoTriggered;
-    VlTriggerVec<1> __VactTriggered;
-    VlTriggerVec<1> __VnbaTriggered;
 
     // INTERNAL VARIABLES
     Vcore__Syms* const vlSymsp;
 
     // CONSTRUCTORS
-    Vcore___024root(Vcore__Syms* symsp, const char* v__name);
+    Vcore___024root(Vcore__Syms* symsp, const char* name);
     ~Vcore___024root();
     VL_UNCOPYABLE(Vcore___024root);
 
     // INTERNAL METHODS
     void __Vconfigure(bool first);
-};
+} VL_ATTR_ALIGNED(VL_CACHE_LINE_BYTES);
 
 
 #endif  // guard

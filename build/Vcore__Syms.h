@@ -17,11 +17,10 @@
 #include "Vcore___024root.h"
 
 // SYMS CLASS (contains all model state)
-class alignas(VL_CACHE_LINE_BYTES)Vcore__Syms final : public VerilatedSyms {
+class Vcore__Syms final : public VerilatedSyms {
   public:
     // INTERNAL STATE
     Vcore* const __Vm_modelp;
-    VlDeleter __Vm_deleter;
     bool __Vm_didInit = false;
 
     // MODULE INSTANCE STATE
@@ -33,6 +32,6 @@ class alignas(VL_CACHE_LINE_BYTES)Vcore__Syms final : public VerilatedSyms {
 
     // METHODS
     const char* name() { return TOP.name(); }
-};
+} VL_ATTR_ALIGNED(VL_CACHE_LINE_BYTES);
 
 #endif  // guard

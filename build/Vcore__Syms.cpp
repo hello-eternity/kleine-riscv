@@ -10,7 +10,7 @@ Vcore__Syms::~Vcore__Syms()
 {
 }
 
-Vcore__Syms::Vcore__Syms(VerilatedContext* contextp, const char* namep, Vcore* modelp)
+Vcore__Syms::Vcore__Syms(VerilatedContext* contextp, const char* namep,Vcore* modelp)
     : VerilatedSyms{contextp}
     // Setup internal state of the Syms class
     , __Vm_modelp{modelp}
