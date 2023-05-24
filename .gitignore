@@ -1,13 +1,3 @@
 
-build/
+
 .vscode/
-/obj_dir
-
-callgrind.*
-perf.*
-gmon.*
-test.*
-compile_flags.txt
-
-.vimspector.json
-
